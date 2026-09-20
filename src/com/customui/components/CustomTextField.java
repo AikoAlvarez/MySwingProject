@@ -13,7 +13,7 @@ public class CustomTextField extends JTextField {
     private Color currentBorderColor = borderColor;
     private final int cornerRadius = 12;
 
-    private CustomTextField (String placeholder, int columns){
+    public CustomTextField (String placeholder, int columns){
         super (columns);
         this.placeholder = placeholder;
         setOpaque(false);
