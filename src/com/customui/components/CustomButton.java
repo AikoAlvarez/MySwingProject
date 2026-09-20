@@ -48,4 +48,28 @@ public class CustomButton extends JButton {
             }
         });
     }
+
+    @Override
+    protected void paintComponent (Graphics g){
+        Graphics2D g2 = (Graphics2D) g.create();
+
+        // Suavizado de contorno para bordes mas suaves
+        g2.setRenderingHint (RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+        // Rellenar fondo con esquinas redondeadas
+        g2.setColor (currentColor);
+        g2.fillRoundRect(0, 0, getWidth(), getHeight(), cornerRadius, cornerRadius);
+
+        g2.dispose ();
+
+        // Dibujar el texto estandar del boton arriba
+        super.paintComponent(g);
+    }
+
+    // setters
+    public void setNormalColor(Color color) { this.normalColor = color; this.currentColor = color; }
+    public void setHoverColor(Color color) { this.hoverColor = color; }
+    public void setPressColor(Color color) { this.pressColor = color; }
+    public void setCurrentColor(Color color) { this.currentColor = color; }
+    public void setCornerRadius(int cornerRadius) { this.cornerRadius = cornerRadius; }
 }
