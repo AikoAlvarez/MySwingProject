@@ -1,0 +1,7 @@
+# Archivos compilados
+*.class
+*.jar
+
+# Configuración local de IDEs
+.vscode/
+bin/
